@@ -45,7 +45,7 @@ function Address({ address, setAddress }) {
     address.phone;
 
   return (
-    <div className="address-container">
+    <main className="address-container">
       <h2 className="address-title">Adresse de livraison</h2>
       {error && <p className="address-error">{error}</p>}
 
@@ -90,7 +90,7 @@ function Address({ address, setAddress }) {
       </button>
 
       <Link className="link-back" to="/cart">Retour au panier</Link>
-    </div>
+    </main>
   );
 }
 

@@ -2,7 +2,7 @@
 .cart {
   padding: 1.5rem;
   max-width: 600px;
-  margin: auto;
+  margin-top: 8rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -111,7 +111,6 @@
       transition: .3s;
       cursor: pointer;
 
-      &:hover { background: darken(#e6dcd2, 6%); }
     }
 
     span {

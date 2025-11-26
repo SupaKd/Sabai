@@ -10,7 +10,7 @@ function Cart({ cart, changeQty, removeItem, total }) {
   };
 
   return (
-    <div className="cart">
+    <main className="cart">
 
       {/* HEADER */}
       <header className="cart-header">
@@ -83,7 +83,7 @@ function Cart({ cart, changeQty, removeItem, total }) {
         Retour au menu
       </Link>
 
-    </div>
+    </main>
   );
 }
 
