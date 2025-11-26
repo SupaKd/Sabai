@@ -21,6 +21,7 @@ $font-base: "Inter", sans-serif;
 html {
   font-size: 62.5%; // 1rem = 10px
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -30,6 +31,7 @@ body {
   color: $text-color;
   background-color: $secondary-color;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 // Conteneurs
@@ -41,6 +43,7 @@ body {
 
 main {
   flex: 1;
+  overflow-x: hidden;
 }
 
 .container {
@@ -48,6 +51,7 @@ main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  overflow-x: hidden;
 }
 
 // Formulaires modernisés
