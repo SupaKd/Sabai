@@ -144,7 +144,7 @@ $transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu__block-title {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: $text-primary;
   margin-bottom: 1.5rem;
@@ -267,6 +267,7 @@ $transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 .menu__card-img {
   position: relative;
   width: 120px;
+  max-width: 100%;  
   flex-shrink: 0;
   order: 2; // Force l'image à être à droite
 
@@ -360,7 +361,7 @@ $transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
 .overlay-image {
   position: absolute; // pour se placer par-dessus le hero
-  top: 115%; // ajuste la position verticale
+  top: 105%; // ajuste la position verticale
   left: 80%; // centre horizontal
   transform: translate(-50%, -50%);
   z-index: 1; // au-dessus du hero

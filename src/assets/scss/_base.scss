@@ -21,7 +21,6 @@ $font-base: "Inter", sans-serif;
 html {
   font-size: 62.5%; // 1rem = 10px
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -31,8 +30,14 @@ body {
   color: $text-color;
   background-color: #f9f7f3;
   line-height: 1.6;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
+
 
 // Conteneurs
 .App {
@@ -49,8 +54,10 @@ main {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 0 1.6rem;
+  overflow-x: hidden;    
 }
+
 
 // Formulaires modernisés
 input, select, textarea {
@@ -161,3 +168,10 @@ a {
     box-shadow: 0 10px 30px rgba($accent-color, 0.15);
   }
 }
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
