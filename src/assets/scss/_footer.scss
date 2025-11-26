@@ -2,29 +2,44 @@
 $primary-color: #7d9243;       // vert moyen
 $secondary-color: #e6dcd2;     // beige clair
 $accent-color: #586140;         // vert foncé
-$text-primary: #1d1d1f;
-$text-light: #5b5b5b;
-$bg-dark: #f5f5f7;
+$text-primary: #fff;
+$text-light: #fff;
+$bg-dark: #444;
 $border-color: #d1d1d6;
 $transition: all 0.3s ease-in-out;
 $border-radius: 12px;
 
 // Footer styles
+// === FOOTER ===============================================================
 .footer {
   background: $text-primary;
   color: $bg-dark;
   position: relative;
   overflow: hidden;
-  padding: 3rem 1rem;
+  padding: 3.5rem 1.2rem;
+  border-top: 1px solid rgba($secondary-color, .15);
 
+  /* Effet de brume subtile + texture premium */
+  &::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at 20% 10%, rgba($secondary-color,.07), transparent 55%),
+                radial-gradient(circle at 80% 70%, rgba($primary-color,.05), transparent 60%);
+    opacity:.7;
+    pointer-events:none;
+  }
+
+  // Container
   &__container {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
+  // Main columns
   &__main {
     display: grid;
     grid-template-columns: 1fr;
@@ -36,199 +51,161 @@ $border-radius: 12px;
     }
   }
 
-  &__section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+  // Blocks
+  &__section { display:flex; flex-direction:column; gap:1rem; }
 
+  // LOGO
   &__logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    display:flex; align-items:center; gap:.75rem;
 
-    &-image {
-      width: 100px;
-      height: auto;
-    }
+    &-image { width:100px; height:auto; }
 
     &-text {
-      font-size: 2rem;
-      font-weight: 800;
-      background: $primary-color;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: block;
-      line-height: 1;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight:800;
+      background: linear-gradient(135deg, $primary-color, $accent-color);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      line-height:1;
     }
 
     &-subtitle {
-      font-size: 0.875rem;
-      color: $bg-dark;
-      font-weight: 400;
-      letter-spacing: 0.05em;
+      font-size:.9rem;
+      opacity:.8;
+      letter-spacing:.04em;
     }
   }
 
+  // TITRES
   &__title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: $bg-dark;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+    font-size:1.2rem;
+    font-weight:600;
+    margin-bottom:.6rem;
+    color:$text-light;
+    display:flex; align-items:center; gap:.5rem;
 
-  &__contact {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-
-    &-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.9rem;
-      color: $bg-dark;
-      transition: $transition;
-
-      &:hover {
-        color: $primary-color;
-        transform: translateX(4px);
-      }
+    &::after {
+      content:"";
+      flex-grow:1;
+      height:2px;
+      background:$accent-color;
+      opacity:.35;
+      border-radius:4px;
     }
   }
 
-  &__icon {
-    color: $accent-color;
-    flex-shrink: 0;
-    width: 16px;
-  }
+  // CONTACT + HOVER amélioré
+  &__contact-item {
+    display:flex; align-items:center; gap:.75rem;
+    font-size:0.95rem;
+    color:$text-light;
+    transition:transform .25s, color .25s, opacity .25s;
+    opacity:.85;
 
-  &__schedule {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-    &-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid $border-color;
-
-      &:last-child {
-        border-bottom: none;
-      }
+    &:hover {
+      color:$primary-color;
+      transform:translateX(6px);
+      opacity:1;
     }
   }
 
-  &__days { font-weight: 500; color: $bg-dark; }
-  &__hours { color: $accent-color; font-weight: 600; }
+  &__icon { color:$accent-color; width:18px; }
 
+  // HORAIRES
+  &__schedule-item {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:.55rem 0;
+    border-bottom:1px solid rgba($secondary-color,.2);
+
+    &:last-child { border-bottom:none; }
+  }
+
+  &__days   { font-weight:500; opacity:.95; }
+  &__hours  { color:$primary-color; font-weight:600; }
+
+  // SOCIAL — amélioré en glass moderne
   &__social {
-    display: flex;
-    gap: 0.75rem;
-    margin-top: 0.5rem;
+    display:flex; gap:.75rem; flex-wrap:wrap; margin-top:.5rem;
 
     &-text {
-      color: $bg-dark;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
+      font-size:.95rem; opacity:.9; margin-bottom:.4rem;
     }
 
     &-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      color: $bg-dark;
-      transition: $transition;
-      backdrop-filter: blur(10px);
-      border: 1px solid transparent;
+      width:42px; height:42px;
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(255,255,255,.08);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.15);
+      color:$text-light;
+      transition:.35s ease;
 
       &:hover {
-        background: $primary-color;
-        color: #fff;
-        transform: translateY(-2px);
-        border-color: rgba(0, 0, 0, 0.1);
-        box-shadow: 0 6px 18px rgba($primary-color, 0.3);
+        background:$primary-color;
+        color:#fff;
+        transform:translateY(-4px) scale(1.06);
+        box-shadow:0 8px 20px rgba($primary-color,.28);
       }
     }
   }
 
+  // BOTTOM
   &__bottom {
-    margin-top: 2rem;
-    border-top: 1px solid $border-color;
-    padding-top: 1rem;
-    text-align: center;
-    font-size: 0.875rem;
-    color: $bg-dark;
+    margin-top:2.2rem;
+    padding-top:1.3rem;
+    border-top:1px solid rgba($secondary-color,.15);
+    text-align:center;
+    font-size:.9rem;
+    opacity:.85;
 
-    @media (min-width: 640px) {
-      display: flex;
-      justify-content: space-between;
-      text-align: left;
+    @media(min-width:640px) {
+      display:flex; justify-content:space-between; text-align:left;
     }
   }
 
-  &__heart { color: #ef4444; animation: pulse 2s infinite; }
+  &__heart { color:#ef4444; animation:pulse 2s infinite; }
 
+  // LEGAL
   &__legal {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    color: $bg-dark;
+    display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center;
+    opacity:.9;
 
-    @media (min-width: 640px) {
-      justify-content: flex-end;
-    }
+    @media(min-width:640px){ justify-content:flex-end; }
 
     a {
-      color: $bg-dark;
-      text-decoration: none;
-      transition: $transition;
+      text-decoration:none;
+      color:$bg-dark;
+      transition:color .3s;
 
-      &:hover { color: $primary-color; }
+      &:hover { color:$primary-color; }
     }
-
-    span { color: $border-color; }
+    span { color:$border-color; }
   }
 
   .footer__copyright p {
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 0.875rem;
-    color: $bg-dark;
+    margin-top:1.1rem;
+    font-size:.85rem;
+    opacity:.8;
   }
 }
 
-// Animations
+// ANIMATION
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  50% { transform:scale(1.12); }
 }
 
-// Glassmorphism pour grands écrans
-@media (min-width: 1024px) {
-  .footer__social-link {
-    backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.08);
-  }
+// GLASS desktop renforcé
+@media(min-width:1024px){
+  .footer__social-link { backdrop-filter:blur(18px); }
 }
 
-// Mode sombre
-@media (prefers-color-scheme: dark) {
+// DARK MODE
+@media(prefers-color-scheme: dark){
   .footer {
-    background: $bg-dark;
+    background:$bg-dark;
+    color:$text-primary;
 
-    &__social-link {
-      background: rgba(255, 255, 255, 0.05);
-    }
+    &__social-link { background:rgba(0,0,0,.1); }
   }
 }
