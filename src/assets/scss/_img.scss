@@ -1,0 +1,280 @@
+// Variables
+$primary-dark: #111;
+$secondary-dark: #222;
+$white: #ffffff;
+$overlay-light: rgba(0, 0, 0, 0.3);
+$overlay-dark: rgba(0, 0, 0, 0.5);
+$accent-color: #e74c3c;
+$shadow: rgba(0, 0, 0, 0.1);
+$shadow-strong: rgba(0, 0, 0, 0.2);
+$transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-fast: all 0.3s ease;
+
+// Mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (min-width: 768px) { @content; }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 1024px) { @content; }
+  }
+}
+
+// Services Section
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  gap: 3rem;
+  background: linear-gradient(to bottom, #f8f9fa 0%, $white 100%);
+
+  @include respond-to(tablet) {
+    padding: 4rem 2rem;
+    gap: 4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+    text-align: center;
+    color: $primary-dark;
+    position: relative;
+    padding-bottom: 1rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, $accent-color 0%, darken($accent-color, 10%) 100%);
+      border-radius: 2px;
+    }
+
+    @include respond-to(tablet) {
+      font-size: 3rem;
+    }
+
+    @include respond-to(desktop) {
+      font-size: 4rem;
+    }
+  }
+}
+
+.services-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1200px;
+
+  @include respond-to(tablet) {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .left {
+    .large {
+      height: 100%;
+      min-height: 300px;
+
+      @include respond-to(tablet) {
+        min-height: 400px;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include respond-to(tablet) {
+      gap: 1.5rem;
+    }
+
+    .small {
+      flex: 1;
+      min-height: 150px;
+
+      @include respond-to(tablet) {
+        min-height: 190px;
+      }
+    }
+  }
+
+  .double {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include respond-to(tablet) {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+
+    .small {
+      flex: 1;
+    }
+  }
+}
+
+.service-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 15px $shadow;
+  transition: $transition;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba($accent-color, 0.1) 100%);
+    opacity: 0;
+    transition: $transition;
+    z-index: 1;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: $transition;
+  }
+
+  h3 {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+    background: $overlay-light;
+    backdrop-filter: blur(2px);
+    transition: $transition;
+    z-index: 2;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+    @include respond-to(tablet) {
+      font-size: 1.6rem;
+    }
+
+    @include respond-to(desktop) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px $shadow-strong;
+
+    &::before {
+      opacity: 1;
+    }
+
+    img {
+      transform: scale(1.1);
+    }
+
+    h3 {
+      background: $overlay-dark;
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  &:active {
+    transform: translateY(-2px);
+  }
+}
+
+.rdv-btn {
+  background: $primary-dark;
+  color: $white;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: $transition;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba($primary-dark, 0.3);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba($white, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  &:hover {
+    background: $secondary-dark;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba($primary-dark, 0.4);
+
+    &::before {
+      width: 400px;
+      height: 400px;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+
+  @include respond-to(tablet) {
+    padding: 2rem;
+    font-size: 1.4rem;
+  }
+
+  @include respond-to(desktop) {
+    font-size: 1.6rem;
+  }
+}
+
+// Mobile adjustments
+@media (max-width: 767px) {
+  .services {
+    display: none;
+  }
+
+  .services-layout {
+    .left .large {
+      min-height: 250px;
+    }
+
+    .right {
+      .small {
+        min-height: 200px;
+      }
+    }
+  }
+
+  .rdv-btn {
+    display: none;
+  }
+}

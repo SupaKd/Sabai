@@ -1,0 +1,216 @@
+// Variables
+$primary: #2c3e50;
+$accent: #e74c3c;
+$success: #27ae60;
+$danger: #c0392b;
+$white: #fff;
+$bg-light: #f8f9fa;
+$text: #1a1a1a;
+$gray: #6c757d;
+$border: #ddd;
+$disabled: #bdc3c7;
+
+// Mixins
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+// Container
+.address-container {
+  min-height: 100vh;
+  background: $bg-light;
+  padding: 2rem 1rem 4rem;
+  max-width: 700px;
+  margin: 0 auto;
+
+  @include tablet {
+    padding: 3rem 2rem 5rem;
+  }
+}
+
+// Title
+.address-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: $text;
+  margin: 0 0 2rem;
+  padding-bottom: 1rem;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: $accent;
+    border-radius: 2px;
+  }
+
+  @include tablet {
+    font-size: 2.5rem;
+    margin: 0 0 3rem;
+  }
+}
+
+// Error
+.address-error {
+  background: #fdeaea;
+  color: $danger;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-left: 4px solid $danger;
+
+  @include tablet {
+    font-size: 1rem;
+  }
+}
+
+// Form Group
+.form-group {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $text;
+    margin-bottom: 0.5rem;
+
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Input & Select
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: $text;
+  background: $white;
+  border: 2px solid $border;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-color: $accent;
+    box-shadow: 0 0 0 3px rgba($accent, 0.1);
+  }
+
+  &:read-only {
+    background: #f5f5f5;
+    color: $gray;
+    cursor: not-allowed;
+  }
+
+  @include tablet {
+    padding: 1rem 1.25rem;
+    font-size: 1.05rem;
+  }
+}
+
+select.form-input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%232c3e50' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+// Buttons
+.btn {
+  width: 100%;
+  padding: 1.125rem 2rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 2rem 0 1.5rem;
+
+  @include tablet {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.15rem;
+  }
+}
+
+.btn-primary {
+  background: $success;
+  color: $white;
+
+  &:hover {
+    background: darken($success, 8%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba($success, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-disabled {
+  background: $disabled;
+  color: #95a5a6;
+  cursor: not-allowed;
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+// Link
+.link-back {
+  display: block;
+  text-align: center;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  color: $primary;
+  background: $white;
+  border: 2px solid $primary;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    background: $primary;
+    color: $white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba($primary, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @include tablet {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}

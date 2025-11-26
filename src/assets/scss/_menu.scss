@@ -1,0 +1,334 @@
+// Variables et mixins
+$primary-color: #2563eb;
+$primary-hover: #1d4ed8;
+$text-primary: #1f2937;
+$text-secondary: #6b7280;
+$text-light: #9ca3af;
+$bg-white: #ffffff;
+$bg-light: #f8fafc;
+$border-color: #e5e7eb;
+$border-radius: 12px;
+$border-radius-sm: 8px;
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+$transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Reset et base
+.menu {
+  background: #f9f7f3;
+  min-height: 100vh;
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: start;
+    color: #111827;
+    margin: 2rem 1rem 1.5rem;
+
+    @media (min-width: 768px) {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+// Catégories
+.menu__categories-wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid $border-color;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+
+.menu__categories {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.menu__cat-btn {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: $text-secondary;
+  transition: $transition;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &:hover {
+    border-color: $primary-color;
+    color: #000;
+  }
+
+  &.active {
+    background: #111;
+    color: #fff;
+  }
+}
+
+// Blocs de catégories
+.menu__grouped {
+  padding: 1.5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu__block {
+  margin-bottom: 3rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.menu__block-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $text-primary;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #111;
+  display: inline-block;
+}
+
+// Grille des produits - Mobile first
+.menu__items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Cartes produit - Layout horizontal mobile AVEC TEXTE À GAUCHE ET PHOTO À DROITE
+.menu__card {
+  background: $bg-white;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  transition: $transition;
+  border: 1px solid $border-color;
+  display: flex;
+  flex-direction: row;
+  min-height: 120px;
+  z-index: 1;
+
+  // Retour au layout vertical sur desktop
+  @media (min-width: 768px) {
+    flex-direction: column;
+    min-height: auto;
+  }
+}
+
+// CONTENU TEXTE À GAUCHE
+.menu__card-body {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  // Sur desktop, on garde le contenu en haut
+  @media (min-width: 768px) {
+    order: 2;
+  }
+}
+
+.menu__card-content {
+  flex: 1;
+}
+
+.menu__card-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.menu__card-description {
+  font-size: 1rem;
+  color: $text-secondary;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.menu__price-row {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.menu__price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.025em;
+}
+
+.menu__add {
+  padding: 0.5rem 1rem;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: $border-radius-sm;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: $transition;
+  min-width: 70px;
+  flex-shrink: 0;
+
+ 
+
+  &.added {
+    background: #89c119;
+    animation: bounce 0.6s ease;
+  }
+}
+
+// PHOTO À DROITE (order: 2 sur mobile)
+.menu__card-img {
+  position: relative;
+  width: 120px;
+  flex-shrink: 0;
+  order: 2; // Force l'image à être à droite
+
+  @media (min-width: 768px) {
+    width: 100%;
+    order: 1; // Retour à l'ordre normal sur desktop
+    padding-bottom: 75%;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Animations
+@keyframes bounce {
+  0%,
+  20%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-4px);
+  }
+  80% {
+    transform: translateY(-2px);
+  }
+}
+
+// Optimisations responsive
+@media (max-width: 360px) {
+  .menu__card-img {
+    width: 90px;
+  }
+
+  .menu__card-body {
+    padding: 0.75rem;
+  }
+
+  .menu__card-name {
+    font-size: 0.9rem;
+  }
+
+  .menu__card-description {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .menu__card-img {
+    width: 120px;
+  }
+}
+
+// Support du mode sombre
+@media (prefers-color-scheme: dark) {
+  .menu {
+    background: #111827;
+  }
+
+  .menu__categories-wrapper {
+    background: rgba(17, 24, 39, 0.9);
+    border-bottom-color: #374151;
+  }
+
+  .menu__cat-btn {
+    background: #1f2937;
+    border-color: #374151;
+    color: #d1d5db;
+  }
+
+  .menu__card {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  .menu__card-name {
+    color: #f9fafb;
+  }
+
+  .menu__card-description {
+    color: #9ca3af;
+  }
+}
+
+.overlay-image {
+  position: absolute; // pour se placer par-dessus le hero
+  top: 100%; // ajuste la position verticale
+  left: 80%; // centre horizontal
+  transform: translate(-50%, -50%);
+  z-index: 10; // au-dessus du hero
+  width: 180px; // ajuste la taille
+  pointer-events: none; // si tu veux qu’elle ne bloque pas les clics
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+  .overlay-image {
+    width: 200px;
+    top: 98%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .overlay-image {
+    width: 250px;
+    top: 104%;
+    z-index: 0;
+  }
+}

@@ -1,0 +1,243 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+    &-file {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem 1rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  &__logo-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    .hero__logo {
+      width: 100%;
+      height: auto;
+      margin-right:1rem;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    }
+  }
+
+  &__text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__subtitle {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: #ffffff;
+    margin: 0;
+    max-width: 400px;
+    font-family: 'Georgia', serif;
+    font-weight: 400;
+    font-style: italic;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
+    z-index: 1;
+    
+    // Effet de brillance subtil sur le texte
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: textShine 3s ease-in-out infinite alternate;
+  }
+
+  &__cta {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #f9f9f9 0%, #fff 100%);
+    color: #111;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.125rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 
+      0 4px 15px rgba(0, 0, 0, 0.3),
+      0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    
+    // Effet de brillance au survol
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: left 0.6s ease;
+    }
+    
+    &:hover {
+      transform: translateY(-3px);
+      background: #111;
+      color: #fff;
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.3);
+      
+      &::before {
+        left: 100%;
+      }
+    }
+    
+    &:active {
+      transform: translateY(-1px);
+      transition: transform 0.1s ease;
+    }
+    
+    // Animation d'apparition
+    animation: buttonPulse 2s ease-in-out infinite;
+  }
+
+  // Animation pour le texte
+  @keyframes textShine {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  // Animation pour le bouton
+  @keyframes buttonPulse {
+    0%, 100% {
+      box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+      box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.5),
+        0 3px 6px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  // Desktop styles
+// Desktop styles
+@media (min-width: 768px) {
+  &__content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 4rem; // plus d'espace entre logo et texte
+  }
+
+  &__logo-wrapper {
+    justify-content: flex-start;
+    flex: 1;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__text-content {
+    align-items: center;
+    flex: 1;
+    max-width: 600px;
+    gap: 3rem; // plus d'espace vertical
+  }
+
+  &__subtitle {
+    font-size: 2.5rem; // plus grand
+    text-align: center;
+    line-height: 1.8;
+    max-width: 700px;
+  }
+
+  &__cta {
+    padding: 1.5rem 3.5rem; // bouton plus grand
+    font-size: 1.5rem;
+  }
+}
+
+// Large desktop
+@media (min-width: 1024px) {
+  &__container {
+    padding: 4rem 3rem;
+  }
+
+  &__content {
+    gap: 5rem;
+  }
+
+  &__logo {
+    width: 900px; // logo plus grand
+  }
+
+  &__subtitle {
+    font-size: 2rem;
+    max-width: 600px;
+  }
+
+  &__cta {
+    padding: 1.75rem 4rem;
+    font-size: 1.5rem;
+  }
+}
+
+// Très grands écrans
+@media (min-width: 1440px) {
+  &__subtitle {
+    font-size: 2.5rem;
+    max-width: 650px;
+  }
+
+  &__cta {
+    padding: 2rem 4.5rem;
+    font-size: 1.75rem;
+  }
+}
+
+}
