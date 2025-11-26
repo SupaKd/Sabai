@@ -29,7 +29,7 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   color: $text-color;
-  background-color: $secondary-color;
+  background-color: #f9f7f3;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -43,7 +43,6 @@ body {
 
 main {
   flex: 1;
-  overflow-x: hidden;
 }
 
 .container {
@@ -51,7 +50,6 @@ main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  overflow-x: hidden;
 }
 
 // Formulaires modernisés
