@@ -129,7 +129,7 @@ $transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: row;
   min-height: 120px;
-  z-index: 1;
+  z-index: 2;
 
   // Retour au layout vertical sur desktop
   @media (min-width: 768px) {
@@ -309,10 +309,10 @@ $transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
 .overlay-image {
   position: absolute; // pour se placer par-dessus le hero
-  top: 100%; // ajuste la position verticale
+  top: 110%; // ajuste la position verticale
   left: 80%; // centre horizontal
   transform: translate(-50%, -50%);
-  z-index: 10; // au-dessus du hero
+  z-index: 1; // au-dessus du hero
   width: 180px; // ajuste la taille
   pointer-events: none; // si tu veux qu’elle ne bloque pas les clics
 }
