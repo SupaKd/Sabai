@@ -1,216 +1,202 @@
-// Variables
-$primary: #2c3e50;
-$accent: #e74c3c;
-$success: #27ae60;
-$danger: #c0392b;
-$white: #fff;
-$bg-light: #f8f9fa;
-$text: #1a1a1a;
-$gray: #6c757d;
-$border: #ddd;
-$disabled: #bdc3c7;
+/* Address.module.scss (ou address.scss) */
+/* Mobile-first, responsive, sans variables */
 
-// Mixins
-@mixin tablet {
-  @media (min-width: 768px) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: 1024px) {
-    @content;
-  }
-}
-
-// Container
+/* Container */
 .address-container {
-  min-height: 100vh;
-  background: $bg-light;
-  padding: 2rem 1rem 4rem;
-  max-width: 700px;
-  margin-top: 10rem;
-
-  @include tablet {
-    padding: 3rem 2rem 5rem;
-  }
+  width: 100%;
+  max-width: 520px;
+  margin: 5rem auto;
+  padding: 18px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(19, 24, 33, 0.06);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #0b1320;
 }
 
-// Title
+/* Title */
 .address-title {
-  font-size: 2rem;
+  font-size: 18px;
   font-weight: 700;
-  text-align: center;
-  color: $text;
-  margin: 0 0 2rem;
-  padding-bottom: 1rem;
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: $accent;
-    border-radius: 2px;
-  }
-
-  @include tablet {
-    font-size: 2.5rem;
-    margin: 0 0 3rem;
-  }
+  margin-bottom: 12px;
+  letter-spacing: -0.2px;
 }
 
-// Error
+/* Error */
 .address-error {
-  background: #fdeaea;
-  color: $danger;
-  padding: 1rem 1.25rem;
+  background: #fff0f1;
+  color: #b00020;
+  padding: 8px 10px;
   border-radius: 8px;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border-left: 4px solid $danger;
-
-  @include tablet {
-    font-size: 1rem;
-  }
+  font-size: 13px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(176, 0, 32, 0.06);
 }
 
-// Form Group
+/* Form group */
 .form-group {
-  margin-bottom: 1.5rem;
-
-  label {
-    display: block;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: $text;
-    margin-bottom: 0.5rem;
-
-    @include tablet {
-      font-size: 1rem;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
-// Input & Select
-.form-input {
-  width: 100%;
-  padding: 0.875rem 1rem;
-  font-size: 1rem;
-  color: $text;
-  background: $white;
-  border: 2px solid $border;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-
-  &:focus {
-    outline: none;
-    border-color: $accent;
-    box-shadow: 0 0 0 3px rgba($accent, 0.1);
-  }
-
-  &:read-only {
-    background: #f5f5f5;
-    color: $gray;
-    cursor: not-allowed;
-  }
-
-  @include tablet {
-    padding: 1rem 1.25rem;
-    font-size: 1.05rem;
-  }
-}
-
-select.form-input {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%232c3e50' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.5rem;
-}
-
-// Buttons
-.btn {
-  width: 100%;
-  padding: 1.125rem 2rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin: 2rem 0 1.5rem;
-
-  @include tablet {
-    padding: 1.25rem 2.5rem;
-    font-size: 1.15rem;
-  }
-}
-
-.btn-primary {
-  background: $success;
-  color: $white;
-
-  &:hover {
-    background: darken($success, 8%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba($success, 0.3);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-}
-
-.btn-disabled {
-  background: $disabled;
-  color: #95a5a6;
-  cursor: not-allowed;
-
-  &:hover {
-    transform: none;
-    box-shadow: none;
-  }
-}
-
-// Link
-.link-back {
-  display: block;
-  text-align: center;
-  padding: 1rem 2rem;
-  text-decoration: none;
+/* Labels */
+.form-group > label {
+  font-size: 13px;
+  color: #4b5563;
   font-weight: 600;
-  font-size: 1rem;
-  color: $primary;
-  background: $white;
-  border: 2px solid $primary;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+}
 
-  &:hover {
-    background: $primary;
-    color: $white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba($primary, 0.3);
+/* Inputs & select */
+.form-input {
+  height: 44px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(11, 19, 32, 0.08);
+  background: #fbfdff;
+  font-size: 15px;
+  color: #0b1320;
+  outline: none;
+  transition: box-shadow 160ms ease, border-color 160ms ease, transform 120ms ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Select caret spacing */
+.form-input::-ms-expand {
+  display: none;
+}
+
+/* Focus */
+.form-input:focus {
+  border-color: #6a7cff;
+  box-shadow: 0 6px 18px rgba(106, 124, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Readonly (code postal) */
+.form-input[readonly] {
+  background: #f5f7fb;
+  color: #667085;
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+/* Buttons - base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+/* Primary */
+.btn-primary {
+  background: #fff;
+  color: #111;
+  border: #111 solid 1px;
+}
+
+.btn-primary:active {
+  transform: translateY(1px) scale(0.998);
+}
+
+/* Disabled */
+.btn-disabled {
+  background: #e9eefb;
+  color: #95a0c4;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.95;
+}
+
+/* Link back */
+.link-back {
+  display: inline-block;
+  margin-top: 40px;
+  color: #111;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.link-back:hover {
+  text-decoration: underline;
+}
+
+/* Small helper text for inputs (optional) */
+.helper {
+  font-size: 12px;
+  color: #8a94a6;
+  margin-top: 6px;
+}
+
+/* Layout tweaks for two-column fields on larger screens */
+@media (min-width: 640px) {
+  .address-container {
+    padding: 22px;
   }
 
-  &:active {
-    transform: translateY(0);
+  /* Example grid: make phone + street or city+postal appear side-by-side */
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 
-  @include tablet {
-    padding: 1.2rem 2.5rem;
-    font-size: 1.1rem;
+  .form-input {
+    height: 48px;
   }
+
+  .address-title {
+    font-size: 20px;
+  }
+}
+
+/* Desktop / tablet */
+@media (min-width: 1024px) {
+  .address-container {
+    max-width: 720px;
+    padding: 28px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .btn {
+    height: 52px;
+    border-radius: 14px;
+  }
+
+  .address-title {
+    font-size: 22px;
+  }
+}
+
+/* Accessibility: visible focus for keyboard users */
+.form-input:focus-visible,
+.btn:focus-visible,
+.link-back:focus-visible {
+  outline: 3px solid rgba(106, 124, 255, 0.18);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* Small visual polish */
+.address-container * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

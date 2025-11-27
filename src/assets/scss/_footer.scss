@@ -8,7 +8,7 @@ $secondary-color: #e6dcd2;
 $accent-color: #586140;
 $text-primary: #fff;
 $text-light: #fff;
-$bg-dark: #444;
+$bg-dark: #fff;
 $border-color: #d1d1d6;
 $transition: .35s ease;
 $radius: 14px;
@@ -29,12 +29,7 @@ $radius: 14px;
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("/images/fond.png"); // Change ton chemin ici
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: .25;                // intensité photo
-    filter: brightness(.95);
+    background-color: #444;
     z-index: -3;
   }
 

@@ -1,15 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
-// Couleurs et variables
-$primary-color: #7d9243;      // vert moyen
-$secondary-color: #e6dcd2;    // beige clair
-$accent-color: #586140;        // vert foncé
-$text-color: #1d1d1f;
-$border-radius: 12px;
-$transition-speed: 0.3s;
-$font-base: "Inter", sans-serif;
-
-// Reset global
+/* Reset global minimal */
 *,
 *::before,
 *::after {
@@ -19,158 +8,17 @@ $font-base: "Inter", sans-serif;
 }
 
 html {
-  font-size: 62.5%; // 1rem = 10px
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: $font-base;
-  font-weight: 400;
-  font-size: 1.6rem;
-  color: $text-color;
-  background-color: #f9f7f3;
-  line-height: 1.6;
-}
-
-html, body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
 }
 
-
-// Conteneurs
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-  overflow-x: hidden;    
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  overflow-x: hidden;    
-}
-
-
-// Formulaires modernisés
-input, select, textarea {
-  font-family: $font-base;
-  font-size: 1.6rem;
-  padding: 1.2rem 1.4rem;
-  border-radius: $border-radius;
-  border: 1px solid rgba($accent-color, 0.3);
-  width: 100%;
-  margin-bottom: 1.6rem;
-  background-color: #fff;
-  transition: border-color $transition-speed, box-shadow $transition-speed;
-
-  &:focus {
-    border-color: $primary-color;
-    outline: none;
-    box-shadow: 0 4px 12px rgba($primary-color, 0.25);
-  }
-
-  &::placeholder {
-    color: lighten($accent-color, 20%);
-  }
-}
-
-// Boutons premium
-.button {
-  display: inline-block;
-  padding: 0.9rem 2rem;
-  border-radius: $border-radius;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1.6rem;
-  transition: all $transition-speed;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba($accent-color, 0.1);
-}
-
-.button--primary {
-  background-color: $primary-color;
-  color: #fff;
-
-  &:hover {
-    background-color: darken($primary-color, 10%);
-    box-shadow: 0 6px 18px rgba($accent-color, 0.3);
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 8px rgba($accent-color, 0.2);
-  }
-}
-
-.button--secondary {
-  background-color: $accent-color;
-  color: #fff;
-
-  &:hover {
-    background-color: darken($accent-color, 10%);
-    box-shadow: 0 6px 18px rgba($primary-color, 0.3);
-    transform: translateY(-2px);
-  }
-}
-
-// Titres et texte
-h1, h2, h3, h4, h5, h6 {
-  font-family: $font-base;
-  color: $accent-color;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-}
-
-p {
-  margin-bottom: 1.5rem;
-  color: $text-color;
-  line-height: 1.6;
-}
-
-// Liens modernes
-a {
-  color: $primary-color;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all $transition-speed;
-
-  &:hover {
-    color: darken($primary-color, 10%);
-    text-decoration: underline;
-  }
-}
-
-// Utilitaires
-.text-center { text-align: center; }
-.mb-10 { margin-bottom: 1rem; }
-.mt-10 { margin-top: 1rem; }
-
-// Cards / sections modernes
-.card {
-  background-color: #fff;
-  border-radius: $border-radius;
-  padding: 2rem;
-  box-shadow: 0 6px 20px rgba($accent-color, 0.1);
-  transition: transform $transition-speed, box-shadow $transition-speed;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba($accent-color, 0.15);
-  }
-}
-
-img, video {
+img,
+video {
   max-width: 100%;
-  height: auto;
   display: block;
 }
-

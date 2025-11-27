@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 
 function Cart({ cart, changeQty, removeItem, total }) {
-
-  const format = (v) => new Intl.NumberFormat("fr-FR", { style:"currency", currency:"EUR" }).format(v);
+  const format = (v) =>
+    new Intl.NumberFormat("fr-FR", {
+      style: "currency",
+      currency: "EUR",
+    }).format(v);
 
   const updateQty = (id, qty, type) => {
     if (type === "inc" && qty < 99) changeQty(id, qty + 1);
@@ -10,79 +13,102 @@ function Cart({ cart, changeQty, removeItem, total }) {
   };
 
   return (
-    <main className="cart">
+    <main className="cart container">
 
-      {/* HEADER */}
-      <header className="cart-header">
-        <h2>Mon panier</h2>
+      {/* ------------------------ HEADER ------------------------ */}
+      <header className="cart__header">
+        <h2 className="cart__title">Mon panier</h2>
 
         {cart.length > 0 && (
-          <Link to="/address" className="cart-btn-address">
+          <Link to="/address" className="cart__address-btn">
             Renseigner l'adresse de livraison
           </Link>
         )}
       </header>
 
-      {/* PANIER VIDE */}
+      {/* ---------------------- PANIER VIDE ---------------------- */}
       {cart.length === 0 && (
-        <p className="cart-empty">Votre panier est vide.</p>
+        <p className="cart__empty">Votre panier est vide.</p>
       )}
 
-      {/* TOTAL TOP */}
+      {/* ---------------------- TOTAL TOP ------------------------ */}
       {cart.length > 0 && (
-        <div className="cart-total">
+        <section className="cart__total">
           Total : <strong>{format(total)}</strong>
-        </div>
+        </section>
       )}
 
-      {/* LISTE PRODUITS */}
-      <div className="cart-list">
+      {/* ------------------- LISTE DES PRODUITS ------------------ */}
+      <section className="cart__list">
         {cart.map((item) => (
           <article key={item.id} className="cart-item">
 
-            <img src={item.image} alt={item.name} className="cart-image" />
+            <img
+              src={item.image}
+              alt={item.name}
+              className="cart-item__image"
+            />
 
-            <div className="cart-info">
+            <div className="cart-item__content">
 
-              <div className="cart-text">
-                <p className="cart-name">{item.name}</p>
-                <p className="cart-description">{item.description}</p>
-                <p className="cart-price">Prix : {format(item.price)}</p>
+              <div className="cart-item__info">
+                <p className="cart-item__name">{item.name}</p>
+                <p className="cart-item__description">{item.description}</p>
+                <p className="cart-item__price">
+                  Prix : {format(item.price)}
+                </p>
               </div>
 
-              {/* QTY CONTROLLER */}
-              <div className="cart-qty">
-                <button onClick={() => updateQty(item.id, item.qty, "dec")}>-</button>
-                <span>{item.qty}</span>
-                <button onClick={() => updateQty(item.id, item.qty, "inc")}>+</button>
+              {/* ----- QUANTITÉ ----- */}
+              <div className="cart-item__qty">
+                <button
+                  className="cart-item__qty-btn"
+                  onClick={() => updateQty(item.id, item.qty, "dec")}
+                >
+                  -
+                </button>
+
+                <span className="cart-item__qty-value">{item.qty}</span>
+
+                <button
+                  className="cart-item__qty-btn"
+                  onClick={() => updateQty(item.id, item.qty, "inc")}
+                >
+                  +
+                </button>
               </div>
 
-              <p className="cart-subtotal">Sous-total : {format(item.price * item.qty)}</p>
+              <p className="cart-item__subtotal">
+                Sous-total : {format(item.price * item.qty)}
+              </p>
 
-              <button className="cart-remove" onClick={() => removeItem(item.id)}>
+              <button
+                className="cart-item__remove"
+                onClick={() => removeItem(item.id)}
+              >
                 Supprimer
               </button>
-
             </div>
-
           </article>
         ))}
-      </div>
+      </section>
 
-      {/* ACTIONS GLOBALS */}
+      {/* -------------------- ACTIONS GLOBALES ------------------ */}
       {cart.length > 0 && (
-        <div className="cart-actions">
-          <button className="cart-clear" onClick={() => removeItem("all")}>
+        <footer className="cart__actions">
+          <button
+            className="cart__clear-btn"
+            onClick={() => removeItem("all")}
+          >
             Vider le panier
           </button>
-        </div>
+        </footer>
       )}
 
-      {/* RETOUR */}
-      <Link to="/" className="cart-back">
+      {/* ------------------------- RETOUR ------------------------ */}
+      <Link to="/" className="cart__back">
         Retour au menu
       </Link>
-
     </main>
   );
 }

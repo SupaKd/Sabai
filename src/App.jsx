@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Cart from "./pages/Cart";
 import Address from "./pages/Address";
@@ -11,26 +12,41 @@ import Checkout from "./pages/Checkout";
 import Confirmation from "./pages/Confirmation";
 
 function App() {
-  const [cart, setCart] = useState(() => JSON.parse(localStorage.getItem("cart")) || []);
-  const [address, setAddress] = useState(() =>
-    JSON.parse(localStorage.getItem("address")) || { name: "", street: "", city: "", phone: "" }
+  const [cart, setCart] = useState(
+    () => JSON.parse(localStorage.getItem("cart")) || []
+  );
+  const [address, setAddress] = useState(
+    () =>
+      JSON.parse(localStorage.getItem("address")) || {
+        name: "",
+        street: "",
+        city: "",
+        phone: "",
+      }
   );
 
   useEffect(() => localStorage.setItem("cart", JSON.stringify(cart)), [cart]);
-  useEffect(() => localStorage.setItem("address", JSON.stringify(address)), [address]);
+  useEffect(
+    () => localStorage.setItem("address", JSON.stringify(address)),
+    [address]
+  );
 
   const addToCart = (product) => {
     setCart((prev) => {
       const exists = prev.find((p) => p.id === product.id);
       if (exists) {
-        return prev.map((p) => (p.id === product.id ? { ...p, qty: p.qty + 1 } : p));
+        return prev.map((p) =>
+          p.id === product.id ? { ...p, qty: p.qty + 1 } : p
+        );
       }
       return [...prev, { ...product, qty: 1 }];
     });
   };
 
   const changeQty = (id, qty) =>
-    setCart((prev) => prev.map((p) => (p.id === id ? { ...p, qty: Number(qty) } : p)));
+    setCart((prev) =>
+      prev.map((p) => (p.id === id ? { ...p, qty: Number(qty) } : p))
+    );
 
   const removeItem = (id) => {
     if (id === "all") {
@@ -48,17 +64,32 @@ function App() {
       <Header cartCount={totalItems} />
 
       <Routes>
-        <Route path="/" element={<Menu addToCart={addToCart} />} />
+        <Route path="/" element={<Home addToCart={addToCart} />} />
+
+        <Route path="/menu" element={<Menu addToCart={addToCart} />} />
+
         <Route
           path="/cart"
-          element={<Cart cart={cart} changeQty={changeQty} removeItem={removeItem} total={total} />}
+          element={
+            <Cart
+              cart={cart}
+              changeQty={changeQty}
+              removeItem={removeItem}
+              total={total}
+            />
+          }
         />
-        <Route path="/address" element={<Address address={address} setAddress={setAddress} />} />
 
-        {/* 🔥 IMPORTANT : on passe setCart au Checkout */}
+        <Route
+          path="/address"
+          element={<Address address={address} setAddress={setAddress} />}
+        />
+
         <Route
           path="/checkout"
-          element={<Checkout total={total} address={address} setCart={setCart} />}
+          element={
+            <Checkout total={total} address={address} setCart={setCart} />
+          }
         />
 
         <Route path="/confirmation" element={<Confirmation />} />
