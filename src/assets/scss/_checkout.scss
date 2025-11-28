@@ -1,210 +1,218 @@
-/* checkout.scss — Nouvelle version Premium (design unifié + meilleure structure)
-/* → Ultra moderne, léger, doux, inspiré fintech Black/Gold */
+/* checkout.scss — Mobile-first, style moderne Cambodge/or */
 
-/* -------------------------
-   BASE / THÈME GLOBAL
-------------------------- */
+/* Couleurs */
 $color-bg: #faf9f6;
 $color-dark: #121212;
 $color-text: #242424;
 $color-muted: #7d7d7d;
-
-$color-primary: #C9A227;        /* Gold sobre */
+$color-primary: #C9A227;       /* Or sobre */
 $color-primary-dark: #A88A20;
-$color-soft: #f3efe3;           /* beige soyeux */
+$color-soft: #f3efe3;          /* Beige soyeux */
 $color-field: #f9f8f4;
 
-$radius: 14px;
-$shadow-soft: 0 6px 18px rgba(18,18,18,0.06);
-$transition: 180ms ease;
+$radius: 12px;
+$shadow: 0 6px 18px rgba(18, 18, 18, 0.06);
+$transition: 0.25s ease;
 
-
-/* -------------------------
-   CONTENEUR
-------------------------- */
+/* Container principal */
 .checkout-container {
   width: 100%;
-  max-width: 540px;
+  max-width: 520px;
   margin: 5rem auto;
-  padding: 22px;
-  background: $color-bg;
+  padding: 20px;
+  background: $color-soft;
   border-radius: $radius;
-  box-shadow: $shadow-soft;
-  font-family: "Inter", system-ui, Roboto;
+  box-shadow: $shadow;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   color: $color-text;
-  -webkit-font-smoothing: antialiased;
+
+  @media (min-width: 640px) {
+    padding: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 720px;
+    padding: 28px;
+  }
 }
 
-
-/* -------------------------
-   TITRES & MONTANT
-------------------------- */
+/* Titres */
 .checkout-title {
-  font-size: 21px;
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: $color-dark;
+
+  @media (min-width: 640px) {
+    font-size: 1.75rem;
+  }
 }
 
 .checkout-total {
-  font-size: 19px;
-  font-weight: 600;
-  margin-bottom: 22px;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: $color-primary;
 }
 
-/* ADRESSE */
+.checkout-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+
+  .checkout-cards-logos {
+    display: flex;
+    gap: 8px;
+
+    img {
+      width: 36px;
+      height: auto;
+    }
+  }
+}
+
+/* Adresse */
 .checkout-address-title {
-  margin-top: 14px;
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 700;
   color: $color-muted;
+  margin-top: 10px;
 }
 
 .checkout-address {
-  margin-top: 8px;
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 12px 14px;
-  background: $color-soft;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.05);
-}
-
-
-/* -------------------------
-   ERREURS
-------------------------- */
-.checkout-error {
-  background: #fff3f3;
-  color: #a32424;
-  padding: 9px 11px;
-  border-radius: 10px;
-  font-size: 13px;
-  margin-top: 14px;
-  border: 1px solid rgba(163,36,36,0.08);
-}
-
-
-/* -------------------------
-   FORMULAIRE
-------------------------- */
-.checkout-form {
-  margin-top: 22px;
-}
-
-.checkout-field {
-  margin-bottom: 14px;
-}
-
-/* Labels */
-.checkout-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: $color-muted;
-}
-
-/* Inputs */
-.checkout-input {
-  width: 100%;
-  height: 46px;
-  padding: 11px 14px;
-  margin-top: 6px;
-  font-size: 15px;
-  border-radius: 12px;
-  border: 1px solid rgba(20,20,20,0.08);
+  font-size: 0.9rem;
+  color: $color-text;
   background: $color-field;
-  color: $color-dark;
-  outline: none;
-  transition: $transition;
-  appearance: none;
-}
-
-.checkout-input:focus {
-  border-color: $color-primary;
-  box-shadow: 0 6px 20px rgba(201,162,39,0.12);
-  transform: translateY(-1px);
-}
-
-
-/* -------------------------
-   BOUTON
-------------------------- */
-.checkout-button {
-  width: 100%;
-  height: 50px;
+  padding: 10px 12px;
   border-radius: $radius;
-  border: none;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: $transition;
+  margin-top: 6px;
+  border: 1px solid rgba($color-dark, 0.08);
+  line-height: 1.4;
 }
 
-/* actif (payement possible) */
-.checkout-button.active {
-  background: linear-gradient(180deg, $color-primary 0%, $color-primary-dark 100%);
-  color: #ffffff;
-  box-shadow: 0 8px 26px rgba(201,162,39,0.20);
+/* Erreur */
+.checkout-error {
+  background: #fff0f1;
+  color: #b00020;
+  padding: 8px 10px;
+  border-radius: $radius;
+  font-size: 0.85rem;
+  margin-top: 12px;
+  border: 1px solid rgba(176, 0, 32, 0.06);
 }
 
-.checkout-button.active:active {
-  transform: translateY(1px) scale(0.997);
+/* Formulaire */
+.checkout-form {
+  margin-top: 18px;
+
+  .checkout-field {
+    margin-bottom: 14px;
+
+    label.checkout-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: $color-muted;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .checkout-input-wrapper {
+      position: relative;
+
+      .checkout-input {
+        width: 100%;
+        height: 44px;
+        padding: 10px 12px;
+        border-radius: $radius;
+        border: 1px solid rgba($color-dark, 0.1);
+        background: $color-field;
+        font-size: 0.95rem;
+        color: $color-text;
+        outline: none;
+        transition: border-color $transition, box-shadow $transition, transform 0.15s ease;
+
+        &:focus {
+          border-color: $color-primary;
+          box-shadow: 0 6px 18px rgba($color-primary, 0.15);
+          transform: translateY(-1px);
+        }
+      }
+
+      .checkout-input-icons {
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        display: flex;
+        gap: 6px;
+
+        img {
+          width: 28px;
+          height: auto;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  .checkout-row {
+    display: flex;
+    gap: 12px;
+
+    .checkout-field {
+      flex: 1;
+    }
+  }
+
+  .checkout-button {
+    width: 100%;
+    height: 48px;
+    border-radius: $radius;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.15s ease;
+
+    &.active {
+      background: linear-gradient(180deg, $color-primary 0%, $color-primary-dark 100%);
+      color: #fff;
+      box-shadow: 0 6px 18px rgba($color-primary-dark, 0.25);
+
+      &:active {
+        transform: translateY(1px) scale(0.998);
+      }
+    }
+
+    &.disabled {
+      background: #e0dfd6;
+      color: $color-muted;
+      cursor: not-allowed;
+      opacity: 0.85;
+    }
+  }
 }
 
-/* désactivé */
-.checkout-button.disabled {
-  background: #e7e3cf;
-  color: #9a9266;
-  cursor: not-allowed;
-  opacity: 0.9;
-}
-
-
-/* -------------------------
-   RETOUR
-------------------------- */
+/* Lien retour */
 .checkout-back-link {
   display: inline-block;
-  margin-top: 14px;
-  font-size: 14px;
+  margin-top: 16px;
+  font-size: 0.85rem;
   font-weight: 600;
   color: $color-primary;
   text-decoration: none;
-}
 
-.checkout-back-link:hover {
-  text-decoration: underline;
-}
-
-
-/* -------------------------
-   RESPONSIVE
-------------------------- */
-@media (min-width: 640px) {
-  .checkout-container { padding: 26px; }
-  .checkout-input { height: 50px; }
-  .checkout-title { font-size: 23px; }
-}
-
-@media (min-width: 1024px) {
-  .checkout-container {
-    max-width: 760px;
-    padding: 32px;
-  }
-  .checkout-button {
-    height: 54px;
-    border-radius: 16px;
+  &:hover {
+    text-decoration: underline;
   }
 }
 
-
-/* -------------------------
-   ACCESSIBILITÉ
-------------------------- */
+/* Focus clavier */
 .checkout-input:focus-visible,
 .checkout-button:focus-visible,
 .checkout-back-link:focus-visible {
-  outline: 3px solid rgba(201,162,39,0.22);
+  outline: 3px solid rgba($color-primary, 0.25);
   outline-offset: 3px;
+  border-radius: $radius;
 }

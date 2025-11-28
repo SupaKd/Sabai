@@ -1,17 +1,26 @@
-/* Address.module.scss (ou address.scss) */
-/* Mobile-first, responsive, sans variables */
+/* Address.module.scss — Mobile-first, restaurant asiatique Cambodge */
+$color-bg: #faf9f6;
+$color-dark: #121212;
+$color-text: #242424;
+$color-muted: #7d7d7d;
+
+$color-primary: #C9A227;        /* Gold sobre */
+$color-primary-dark: #A88A20;
+$color-soft: #f3efe3;           /* beige soyeux */
+$color-field: #f9f8f4;
+/* Address.module.scss — Mobile-first, restaurant asiatique style Cambodge */
 
 /* Container */
 .address-container {
   width: 100%;
   max-width: 520px;
-  margin: 5rem auto;
+  margin: 6rem auto;
   padding: 18px;
-  background: #ffffff;
+  background: $color-soft;          // beige soyeux
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(19, 24, 33, 0.06);
+  box-shadow: 0 6px 18px rgba(18, 18, 18, 0.06); // léger shadow
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color: #0b1320;
+  color: $color-text;
 }
 
 /* Title */
@@ -20,17 +29,18 @@
   font-weight: 700;
   margin-bottom: 12px;
   letter-spacing: -0.2px;
+  color: $color-primary;           // gold sobre
 }
 
 /* Error */
 .address-error {
-  background: #fff0f1;
-  color: #b00020;
+  background: lighten($color-primary, 45%); // clair et doux
+  color: $color-primary-dark;
   padding: 8px 10px;
   border-radius: 8px;
   font-size: 13px;
   margin-bottom: 12px;
-  border: 1px solid rgba(176, 0, 32, 0.06);
+  border: 1px solid rgba($color-primary-dark, 0.15);
 }
 
 /* Form group */
@@ -44,7 +54,7 @@
 /* Labels */
 .form-group > label {
   font-size: 13px;
-  color: #4b5563;
+  color: $color-muted;
   font-weight: 600;
 }
 
@@ -53,10 +63,10 @@
   height: 44px;
   padding: 10px 12px;
   border-radius: 10px;
-  border: 1px solid rgba(11, 19, 32, 0.08);
-  background: #fbfdff;
+  border: 1px solid rgba($color-dark, 0.08);
+  background: $color-field;
   font-size: 15px;
-  color: #0b1320;
+  color: $color-text;
   outline: none;
   transition: box-shadow 160ms ease, border-color 160ms ease, transform 120ms ease;
   -webkit-appearance: none;
@@ -70,15 +80,15 @@
 
 /* Focus */
 .form-input:focus {
-  border-color: #6a7cff;
-  box-shadow: 0 6px 18px rgba(106, 124, 255, 0.12);
+  border-color: $color-primary;
+  box-shadow: 0 6px 18px rgba($color-primary, 0.15);
   transform: translateY(-1px);
 }
 
 /* Readonly (code postal) */
 .form-input[readonly] {
-  background: #f5f7fb;
-  color: #667085;
+  background: lighten($color-field, 5%);
+  color: $color-muted;
   border-style: dashed;
   cursor: not-allowed;
 }
@@ -104,9 +114,9 @@
 
 /* Primary */
 .btn-primary {
-  background: #fff;
-  color: #111;
-  border: #111 solid 1px;
+  background: $color-primary;
+  color: $color-soft;
+  border: $color-primary-dark solid 1px;
 }
 
 .btn-primary:active {
@@ -115,8 +125,8 @@
 
 /* Disabled */
 .btn-disabled {
-  background: #e9eefb;
-  color: #95a0c4;
+  background: lighten($color-primary, 50%);
+  color: $color-muted;
   box-shadow: none;
   cursor: not-allowed;
   opacity: 0.95;
@@ -126,7 +136,7 @@
 .link-back {
   display: inline-block;
   margin-top: 40px;
-  color: #111;
+  color: $color-primary-dark;
   font-weight: 600;
   text-decoration: none;
   font-size: 14px;
@@ -139,7 +149,7 @@
 /* Small helper text for inputs (optional) */
 .helper {
   font-size: 12px;
-  color: #8a94a6;
+  color: $color-muted;
   margin-top: 6px;
 }
 
@@ -149,7 +159,6 @@
     padding: 22px;
   }
 
-  /* Example grid: make phone + street or city+postal appear side-by-side */
   .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -190,7 +199,7 @@
 .form-input:focus-visible,
 .btn:focus-visible,
 .link-back:focus-visible {
-  outline: 3px solid rgba(106, 124, 255, 0.18);
+  outline: 3px solid rgba($color-primary, 0.18);
   outline-offset: 3px;
   border-radius: 10px;
 }
