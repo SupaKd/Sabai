@@ -7,7 +7,6 @@ $xl: 1280px;
 // Hero section Apple/Revolut inspired — sans variables
 .hero {
   min-height: 100vh;
-  padding-top: 70px;
   overflow-x: hidden;
   position: relative;
 
@@ -52,7 +51,7 @@ $xl: 1280px;
     flex-direction: column;
     align-items: center;
     gap: 18px;
-    margin-top: 3rem;
+    margin-top: 5rem;
 
     padding: 32px 20px;
     border-radius: 20px;
@@ -185,16 +184,16 @@ $xl: 1280px;
   bottom: -300px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
   left: 74%;
   transform: translateX(-50%);
-  width: 190px; // ajuste selon ton design
+  width: 100px; // ajuste selon ton design
   z-index: 0; // si besoin
   pointer-events: none;
 
   @media screen and (min-width: 768px) {
     position: absolute;
-    bottom: -230px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
+    bottom: -320px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
     left: 85%;
     transform: translateX(-50%);
-    width: 200px; // ajuste selon ton design
+    width: 130px; // ajuste selon ton design
     z-index: 1; // si besoin
     pointer-events: none;
     
@@ -202,10 +201,10 @@ $xl: 1280px;
 
   @media screen and (min-width: 1024px) {
     position: absolute;
-    bottom: -280px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
-    left: 85%;
+    bottom: -500px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
+    left: 90%;
     transform: translateX(-50%);
-    width: 250px; // ajuste selon ton design
+    width: 200px; // ajuste selon ton design
     z-index: 1; // si besoin
     pointer-events: none;
     

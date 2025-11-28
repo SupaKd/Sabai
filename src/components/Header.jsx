@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { FaInstagram, FaShoppingCart } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
+import { faBasketShopping } from "@fortawesome/free-solid-svg-icons"; 
+import { faInstagram } from "@fortawesome/free-brands-svg-icons"; 
 
 function Header({ cartCount }) {
   const [animate, setAnimate] = useState(false);
@@ -17,9 +19,9 @@ function Header({ cartCount }) {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="header-logo-link">
-          <img src="/images/logosabai.png" alt="logo" className="header-logo"/>
+          <img src="/images/logosabai.png" alt="logo" className="header-logo" />
         </Link>
-        
+
         <div className="header-icons">
           <a 
             href="https://www.instagram.com" 
@@ -27,11 +29,11 @@ function Header({ cartCount }) {
             rel="noopener noreferrer"
             className="header-icon-link"
           >
-            <FaInstagram size={28} />
+            <FontAwesomeIcon icon={faInstagram} size="lg" />
           </a>
-          
+
           <Link to="/cart" className="header-icon-link cart-link">
-            <FaShoppingCart size={28} />
+            <FontAwesomeIcon icon={faBasketShopping} size="lg" />
             {cartCount > 0 && (
               <span className={`cart-badge ${animate ? "animate" : ""}`}>
                 {cartCount}
