@@ -168,7 +168,7 @@ export const products = [
     name: "Ramen Miso", 
     price: 15, 
     category: "Ramen", 
-    image: "/images/ramen_miso.jpg",
+    image: "/images/product.png",
     description: "Bouillon miso riche, maïs, beurre et garnitures généreuses"
   },
   { 

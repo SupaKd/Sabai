@@ -6,6 +6,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 function Menu({ addToCart }) {
   const [added, setAdded] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("Toutes");
+  const [previewImage, setPreviewImage] = useState(null);
 
   const categories = ["Toutes", ...new Set(products.map((p) => p.category))];
 
@@ -50,7 +51,7 @@ function Menu({ addToCart }) {
       </div>
 
       {/* Groupes de produits */}
-      <section className="menu__groups">
+      <section className="menu__groups" id="description">
         {groupedProducts.map((group) => (
           <section key={group.category} className="menu__group">
             <h2 className="menu__group-title">{group.category}</h2>
@@ -63,7 +64,13 @@ function Menu({ addToCart }) {
                     <p className="menu__card-description">{prod.description}</p>
 
                     <div className="menu__card-footer">
-                      <span className="menu__price">{prod.price} €</span>
+                      <span className="menu__price">
+                        {prod.price.toLocaleString("fr-FR", {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })}{" "}
+                        €
+                      </span>
 
                       <button
                         className={`menu__add-btn ${
@@ -72,7 +79,7 @@ function Menu({ addToCart }) {
                         onClick={() => handleAdd(prod)}
                       >
                         {added === prod.id ? (
-                          <FontAwesomeIcon icon={faPlus} beat />
+                          "✓"
                         ) : (
                           <FontAwesomeIcon icon={faPlus} />
                         )}
@@ -80,7 +87,10 @@ function Menu({ addToCart }) {
                     </div>
                   </div>
 
-                  <figure className="menu__card-image">
+                  <figure
+                    className="menu__card-image"
+                    onClick={() => setPreviewImage(prod.image)}
+                  >
                     <img src={prod.image} alt={prod.name} />
                   </figure>
                 </article>
@@ -89,6 +99,13 @@ function Menu({ addToCart }) {
           </section>
         ))}
       </section>
+      {previewImage && (
+        <div className="menu__overlay" onClick={() => setPreviewImage(null)}>
+          <div className="menu__image-preview">
+            <img src={previewImage} alt="zoom" />
+          </div>
+        </div>
+      )}
     </main>
   );
 }

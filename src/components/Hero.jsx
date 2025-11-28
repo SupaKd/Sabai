@@ -22,9 +22,10 @@ function Hero() {
               C'est des recettes colorées, des produits frais, et une équipe motivée !
             </p>
 
-            <a href="#menu" className="hero__cta" aria-label="Accéder au menu">
-              COMMANDER
-            </a>
+            <a href="#description" className="hero__cta" aria-label="Accéder au menu">
+  COMMANDER
+</a>
+
           </div>
         </div>
       </div>

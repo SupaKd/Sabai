@@ -56,7 +56,7 @@ $xl: 1280px;
     padding: 32px 20px;
     border-radius: 20px;
 
-    animation: fadeUp 1.3s cubic-bezier(.19,.8,.3,1) forwards;
+    animation: fadeUp 1.3s cubic-bezier(0.19, 0.8, 0.3, 1) forwards;
     opacity: 0;
     transform: translateY(40px);
 
@@ -118,12 +118,14 @@ $xl: 1280px;
 
     line-height: 1.45;
     font-weight: 300;
-    color: rgba(255,255,255,0.9);
+    color: rgba(255, 255, 255, 0.9);
     opacity: 0;
     animation: fadeIn 1.3s ease-out 0.6s forwards;
 
     @media (min-width: $md) {
       font-size: 1.25rem;
+      max-width: 1200px;
+
     }
 
     @media (min-width: $lg) {
@@ -131,61 +133,127 @@ $xl: 1280px;
     }
   }
 
-  &__cta {
-    display: inline-block;
-    margin-top: 6px;
-    padding: 12px 28px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #ffffff;
-    background: linear-gradient(135deg, #879c4f, lighten(#879c4f, 10%));
-    border-radius: 40px;
-    text-decoration: none;
-    transition: transform 250ms ease, box-shadow 250ms;
-    box-shadow: 0 8px 20px rgba(37, 235, 63, 0.35);
+ // Call-To-Action 2025 — élégant, futuriste, premium e-commerce
+.hero__cta {
+  --clr-bg: #111;             // Fond bouton
+  --clr-text: #fff;           // Texte
+  --clr-glow: #22c55e;        // Glow néon moderne (vert)
+  --clr-border: rgba(34, 197, 94, .6);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: 14px 38px;
+  margin-top: 14px;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+
+  background: var(--clr-bg);
+  color: var(--clr-text);
+
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  backface-visibility: hidden;
+
+  /* Effet apparition smooth */
+  opacity: 0;
+  transform: translateY(18px);
+  animation: cta-reveal 1s cubic-bezier(.19,.8,.3,1) .5s forwards;
+
+  /* Glow pulsant futuriste */
+  box-shadow: 0 0 0 rgba(34,197,94,0);
+  transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s, background .35s;
+  
+  /* Halo animé en fond */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, var(--clr-glow), transparent 65%);
     opacity: 0;
-    animation: fadeUp 1.3s cubic-bezier(.19,.8,.3,1) 0.9s forwards;
+    transform: scale(.3);
+    transition: transform .5s ease, opacity .5s ease;
+  }
 
-    &:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 12px 28px rgba(37, 235, 63, 0.45);
-    }
+  /* Lueur en hover */
+  &:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 0 25px rgba(34,197,94,.45);
 
-    @media (min-width: $md) {
-      padding: 14px 34px;
-      font-size: 1.1rem;
-    }
-
-    @media (min-width: $lg) {
-      padding: 16px 40px;
-      font-size: 1.15rem;
+    &::before {
+      opacity: .5;
+      transform: scale(1.6);
     }
   }
+
+  /* Pressed (ultra clean feedback mobile) */
+  &:active {
+    transform: scale(.96);
+    box-shadow: 0 0 10px rgba(34,197,94,.65);
+  }
+
+  /* Responsive sizing */
+  @media(min-width: 768px) {
+    font-size: 1.15rem;
+    padding: 16px 48px;
+  }
+}
+
+/* Animation entrée CTA */
+@keyframes cta-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 }
 
 //---------------------------------------------
 // Animations
 //---------------------------------------------
 @keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(40px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes logoPop {
-  0% { opacity: 0; transform: scale(0.75); }
-  65% { transform: scale(1.15); }
-  100% { opacity: 1; transform: scale(1); }
+  0% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  65% {
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
-
 
 .menu__overlay-image {
   position: absolute;
-  bottom: -400px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
+  bottom: -350px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
   left: 74%;
   transform: translateX(-50%);
   width: 100px; // ajuste selon ton design
@@ -200,7 +268,6 @@ $xl: 1280px;
     width: 130px; // ajuste selon ton design
     z-index: 1; // si besoin
     pointer-events: none;
-    
   }
 
   @media screen and (min-width: 1024px) {
@@ -211,19 +278,18 @@ $xl: 1280px;
     width: 200px; // ajuste selon ton design
     z-index: 1; // si besoin
     pointer-events: none;
-    
   }
 }
 
 .menu__images {
   display: flex;
-  flex-direction: row;   // Alignement horizontal
+  flex-direction: row; // Alignement horizontal
   justify-content: center; // Centrer les images horizontalement
-  align-items: center;     // Centrer verticalement si hauteurs différentes
-  gap:8px;
+  align-items: center; // Centrer verticalement si hauteurs différentes
+  gap: 8px;
 
   img {
-    width: 120px;         // Largeur fixe pour mobile
+    width: 120px; // Largeur fixe pour mobile
     height: auto;
     object-fit: cover;
     transition: transform 0.2s ease;
