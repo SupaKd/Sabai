@@ -1,15 +1,17 @@
 /* ---------------------------------------------
-   VARIABLES
+   VARIABLES — version Asie Cambodge
 --------------------------------------------- */
-$color-primary: #111;
-$color-secondary: #444;
-$color-accent: #f84d4d;
-$color-bg: #f8f8f8;
+$color-primary: #3a2e22;        // brun bois
+$color-secondary: #7c6e5a;      // brun clair épices
+$color-accent: #9d2a2a;         // rouge Bokor cambodgien
+$color-accent-soft: #c57f43;    // ocre curcuma
+$color-bg: #fef9f2;             // ivoire sable
 $color-white: #fff;
 
-$radius: 14px;
-$shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-$transition: 0.25s ease;
+$radius: 16px;
+$shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+$transition: 0.25s cubic-bezier(0.2, 0.9, 0.2, 1);
+
 
 /* ---------------------------------------------
    MIXINS
@@ -28,81 +30,42 @@ $transition: 0.25s ease;
   transition: $transition;
 }
 
+
 /* ---------------------------------------------
-   PAGE CONTAINER
+   PAGE PANIER
 --------------------------------------------- */
 .cart {
   max-width: 900px;
   margin: 6rem 1rem 0rem;
-  padding: 20px;
+  padding: 22px;
   background: $color-white;
   border-radius: $radius;
   box-shadow: $shadow;
+  border: 1px solid rgba(58,46,34,0.18);
 
   @media (max-width: 600px) {
     padding: 16px;
   }
 
+  /* HEADER */
   &__header {
     @include flex-center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 
     .cart__title {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 700;
       color: $color-primary;
     }
 
     .cart__address-btn {
-      padding: 10px 16px;
-      background: $color-primary;
+      padding: 10px 18px;
+      background: $color-accent;
       color: $color-white;
       border-radius: $radius;
       font-weight: 600;
       transition: $transition;
-
-      &:hover {
-        background: darken($color-primary, 5%);
-      }
-    }
-  }
-
-  &__empty {
-    text-align: center;
-    font-size: 1.1rem;
-    color: $color-secondary;
-    padding: 40px 0;
-  }
-
-  &__total {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin: 20px 0;
-    padding: 15px;
-    background: $color-bg;
-    border-radius: $radius;
-    text-align: right;
-  }
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin: 20px 0;
-  }
-
-  &__actions {
-    text-align: right;
-    margin-top: 20px;
-
-    .cart__clear-btn {
-      @include btn-reset;
-      padding: 10px 16px;
-      background: #fff;
-      color: #111;
-      border: #111 solid 1px;
-      border-radius: $radius;
 
       &:hover {
         background: darken($color-accent, 5%);
@@ -110,6 +73,56 @@ $transition: 0.25s ease;
     }
   }
 
+  /* PANIER VIDE */
+  &__empty {
+    text-align: center;
+    font-size: 1.1rem;
+    color: $color-secondary;
+    padding: 40px 0;
+  }
+
+  /* TOTAL */
+  &__total {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 22px 0;
+    padding: 16px;
+    background: $color-bg;
+    border-radius: $radius;
+    text-align: right;
+  }
+
+  /* LISTE PRODUITS */
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin: 24px 0;
+  }
+
+  /* ACTIONS */
+  &__actions {
+    text-align: right;
+    margin-top: 20px;
+
+    .cart__clear-btn {
+      @include btn-reset;
+      padding: 10px 18px;
+      background: $color-white;
+      color: $color-primary;
+      border: 1px solid $color-primary;
+      border-radius: $radius;
+      font-weight: 600;
+
+      &:hover {
+        background: lighten($color-accent-soft, 18%);
+        border-color: $color-accent-soft;
+        color: $color-white;
+      }
+    }
+  }
+
+  /* RETOUR */
   &__back {
     display: inline-block;
     margin-top: 30px;
@@ -123,32 +136,38 @@ $transition: 0.25s ease;
   }
 }
 
+
 /* ---------------------------------------------
-   PRODUIT DU PANIER
+   PRODUIT DU PANIER — version Cambodge
 --------------------------------------------- */
 .cart-item {
   display: flex;
-  flex-direction: row-reverse;   // 📱 MOBILE FIRST → IMAGE À DROITE
+  flex-direction: row-reverse;
   align-items: center;
-  gap: 16px;
-  padding: 18px;
+  gap: 18px;
+  padding: 20px;
   background: $color-bg;
   border-radius: $radius;
+  transition: $transition;
 
-  /* 🖥️ DESKTOP (on garde image à droite mais plus structuré) */
-  @media (min-width: 600px) {
-    align-items: flex-start;
-    gap: 20px;
+  &:hover {
+    box-shadow: $shadow;
+    transform: translateY(-2px);
   }
 
-  /* ----- IMAGE ----- */
+  @media (min-width: 600px) {
+    align-items: flex-start;
+    gap: 22px;
+  }
+
+  /* IMAGE */
   &__image {
     width: 120px;
     height: 120px;
-    object-fit: cover;
     border-radius: $radius;
+    object-fit: cover;
     box-shadow: $shadow;
-    flex-shrink: 0; // Empêche l'image de se réduire
+    flex-shrink: 0;
 
     @media (min-width: 600px) {
       width: 150px;
@@ -156,7 +175,7 @@ $transition: 0.25s ease;
     }
   }
 
-  /* ----- CONTENU ----- */
+  /* CONTENU */
   &__content {
     flex: 1;
     display: flex;
@@ -164,17 +183,15 @@ $transition: 0.25s ease;
     justify-content: space-between;
   }
 
-  /* ----- INFOS ----- */
+  /* INFOS */
   &__info {
     margin-bottom: 12px;
 
-    & > * {
-      margin: 4px 0;
-    }
+    & > * { margin: 4px 0; }
 
     .cart-item__name {
-      font-size: 1.2rem;
-      font-weight: 600;
+      font-size: 1.25rem;
+      font-weight: 700;
       color: $color-primary;
     }
 
@@ -184,58 +201,61 @@ $transition: 0.25s ease;
     }
 
     .cart-item__price {
-      font-weight: 600;
+      font-weight: 700;
       color: $color-primary;
+      font-size: 0.9rem;
     }
   }
 
 
-
-  /* ------------ QUANTITÉ ------------ */
+  /* QUANTITÉ */
   &__qty {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin: 10px 0;
 
     &-btn {
       @include btn-reset;
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
       background: $color-white;
       box-shadow: $shadow;
       font-size: 1.2rem;
-      font-weight: 600;
+      font-weight: 700;
 
       &:hover {
-        background: lighten($color-bg, 4%);
+        background: lighten($color-bg, 5%);
       }
     }
 
     &-value {
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1.15rem;
+      font-weight: 700;
     }
   }
 
+  /* SOUS-TOTAL */
   &__subtotal {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
     color: $color-primary;
     margin-top: 6px;
   }
 
+  /* SUPPRESSION */
   &__remove {
     @include btn-reset;
-    align-self: start;
+    align-self: end;
     margin-top: 10px;
-    padding: 6px 10px;
+    padding: 8px 12px;
     color: $color-accent;
-    font-weight: 500;
+    font-weight: 600;
 
     &:hover {
-      color: darken($color-accent, 10%);
+      color: lighten($color-accent, 8%);
+      transform: translateY(-1px);
     }
   }
 }

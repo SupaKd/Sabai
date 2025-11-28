@@ -1,140 +1,175 @@
-/* checkout.scss — Mobile-first, style Revolut, sans variables */
+/* checkout.scss — Nouvelle version Premium (design unifié + meilleure structure)
+/* → Ultra moderne, léger, doux, inspiré fintech Black/Gold */
 
-/* Container */
+/* -------------------------
+   BASE / THÈME GLOBAL
+------------------------- */
+$color-bg: #faf9f6;
+$color-dark: #121212;
+$color-text: #242424;
+$color-muted: #7d7d7d;
+
+$color-primary: #C9A227;        /* Gold sobre */
+$color-primary-dark: #A88A20;
+$color-soft: #f3efe3;           /* beige soyeux */
+$color-field: #f9f8f4;
+
+$radius: 14px;
+$shadow-soft: 0 6px 18px rgba(18,18,18,0.06);
+$transition: 180ms ease;
+
+
+/* -------------------------
+   CONTENEUR
+------------------------- */
 .checkout-container {
   width: 100%;
-  max-width: 520px;
+  max-width: 540px;
   margin: 5rem auto;
-  padding: 18px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(19, 24, 33, 0.06);
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color: #0b1320;
+  padding: 22px;
+  background: $color-bg;
+  border-radius: $radius;
+  box-shadow: $shadow-soft;
+  font-family: "Inter", system-ui, Roboto;
+  color: $color-text;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Titles */
+
+/* -------------------------
+   TITRES & MONTANT
+------------------------- */
 .checkout-title {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  color: $color-dark;
 }
 
 .checkout-total {
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 600;
-  margin-bottom: 18px;
-  color: #809547;
+  margin-bottom: 22px;
+  color: $color-primary;
 }
 
+/* ADRESSE */
 .checkout-address-title {
-  margin-top: 10px;
+  margin-top: 14px;
   font-size: 14px;
   font-weight: 700;
-  color: #4b5563;
+  color: $color-muted;
 }
 
 .checkout-address {
-  margin-top: 6px;
+  margin-top: 8px;
   font-size: 14px;
-  line-height: 1.4;
-  padding: 10px 12px;
-  background: #f5f7fb;
-  border-radius: 10px;
-  color: #0b1320;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  line-height: 1.5;
+  padding: 12px 14px;
+  background: $color-soft;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Errors */
+
+/* -------------------------
+   ERREURS
+------------------------- */
 .checkout-error {
-  background: #fff0f1;
-  color: #b00020;
-  padding: 8px 10px;
-  border-radius: 8px;
+  background: #fff3f3;
+  color: #a32424;
+  padding: 9px 11px;
+  border-radius: 10px;
   font-size: 13px;
-  margin-top: 12px;
-  border: 1px solid rgba(176, 0, 32, 0.06);
+  margin-top: 14px;
+  border: 1px solid rgba(163,36,36,0.08);
 }
 
-/* Form */
+
+/* -------------------------
+   FORMULAIRE
+------------------------- */
 .checkout-form {
-  margin-top: 18px;
+  margin-top: 22px;
 }
 
 .checkout-field {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 /* Labels */
 .checkout-label {
   font-size: 13px;
   font-weight: 600;
-  color: #4b5563;
+  color: $color-muted;
 }
 
 /* Inputs */
 .checkout-input {
   width: 100%;
-  height: 44px;
-  padding: 10px 12px;
+  height: 46px;
+  padding: 11px 14px;
   margin-top: 6px;
-  border-radius: 10px;
-  border: 1px solid rgba(11, 19, 32, 0.08);
-  background: #fbfdff;
   font-size: 15px;
-  color: #0b1320;
+  border-radius: 12px;
+  border: 1px solid rgba(20,20,20,0.08);
+  background: $color-field;
+  color: $color-dark;
   outline: none;
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 120ms ease;
-
+  transition: $transition;
   appearance: none;
-  -webkit-appearance: none;
 }
 
 .checkout-input:focus {
-  border-color: #6a7cff;
-  box-shadow: 0 6px 18px rgba(106, 124, 255, 0.12);
+  border-color: $color-primary;
+  box-shadow: 0 6px 20px rgba(201,162,39,0.12);
   transform: translateY(-1px);
 }
 
-/* Button */
+
+/* -------------------------
+   BOUTON
+------------------------- */
 .checkout-button {
   width: 100%;
-  height: 48px;
-  border-radius: 12px;
+  height: 50px;
+  border-radius: $radius;
   border: none;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  transition: opacity 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+  transition: $transition;
 }
 
-/* Enabled */
+/* actif (payement possible) */
 .checkout-button.active {
-  background: linear-gradient(180deg, #6a7cff 0%, #5162ff 100%);
+  background: linear-gradient(180deg, $color-primary 0%, $color-primary-dark 100%);
   color: #ffffff;
-  box-shadow: 0 8px 24px rgba(81, 98, 255, 0.18);
+  box-shadow: 0 8px 26px rgba(201,162,39,0.20);
 }
 
 .checkout-button.active:active {
-  transform: translateY(1px) scale(0.998);
+  transform: translateY(1px) scale(0.997);
 }
 
-/* Disabled */
+/* désactivé */
 .checkout-button.disabled {
-  background: #e9eefb;
-  color: #95a0c4;
+  background: #e7e3cf;
+  color: #9a9266;
   cursor: not-allowed;
-  opacity: 0.95;
+  opacity: 0.9;
 }
 
-/* Back link */
+
+/* -------------------------
+   RETOUR
+------------------------- */
 .checkout-back-link {
   display: inline-block;
-  margin-top: 12px;
+  margin-top: 14px;
   font-size: 14px;
   font-weight: 600;
-  color: #809547;
+  color: $color-primary;
   text-decoration: none;
 }
 
@@ -142,39 +177,34 @@
   text-decoration: underline;
 }
 
-/* Responsive tablets */
+
+/* -------------------------
+   RESPONSIVE
+------------------------- */
 @media (min-width: 640px) {
-  .checkout-container {
-    padding: 22px;
-  }
-
-  .checkout-input {
-    height: 48px;
-  }
-
-  .checkout-title {
-    font-size: 22px;
-  }
+  .checkout-container { padding: 26px; }
+  .checkout-input { height: 50px; }
+  .checkout-title { font-size: 23px; }
 }
 
-/* Responsive desktop */
 @media (min-width: 1024px) {
   .checkout-container {
-    max-width: 720px;
-    padding: 28px;
+    max-width: 760px;
+    padding: 32px;
   }
-
   .checkout-button {
-    height: 52px;
-    border-radius: 14px;
+    height: 54px;
+    border-radius: 16px;
   }
 }
 
-/* Keyboard focus accessibility */
+
+/* -------------------------
+   ACCESSIBILITÉ
+------------------------- */
 .checkout-input:focus-visible,
 .checkout-button:focus-visible,
 .checkout-back-link:focus-visible {
-  outline: 3px solid rgba(106, 124, 255, 0.18);
+  outline: 3px solid rgba(201,162,39,0.22);
   outline-offset: 3px;
-  border-radius: 10px;
 }

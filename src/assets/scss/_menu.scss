@@ -184,7 +184,7 @@ $transition: 0.25s cubic-bezier(0.2, 0.9, 0.2, 1);
 
     &.is-added {
       background: $accent;
-      color: white;
+      color: #fff;
       border-color: $accent;
       box-shadow: 0 8px 20px rgba(157,42,42,0.30);
     }
