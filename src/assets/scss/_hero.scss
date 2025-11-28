@@ -82,6 +82,7 @@ $xl: 1280px;
     .hero__logo {
       width: 260px;
       height: auto;
+      margin-right: 1.3rem;
       opacity: 0;
       animation: logoPop 1.4s ease-out 0.2s forwards;
 
@@ -181,7 +182,7 @@ $xl: 1280px;
 
 .menu__overlay-image {
   position: absolute;
-  bottom: -300px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
+  bottom: -340px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
   left: 74%;
   transform: translateX(-50%);
   width: 100px; // ajuste selon ton design
