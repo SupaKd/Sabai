@@ -113,6 +113,9 @@ $xl: 1280px;
 
   &__subtitle {
     font-size: 1.1rem;
+    font-weight: 600;
+    max-width: 250px;
+
     line-height: 1.45;
     font-weight: 300;
     color: rgba(255,255,255,0.9);
