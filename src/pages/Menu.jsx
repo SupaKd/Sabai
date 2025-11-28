@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { products } from "../data/products";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function Menu({ addToCart }) {
   const [added, setAdded] = useState(null);
@@ -56,8 +58,6 @@ function Menu({ addToCart }) {
             <div className="menu__items">
               {group.items.map((prod) => (
                 <article key={prod.id} className="menu__card">
-                  
-
                   <div className="menu__card-body">
                     <h3 className="menu__card-name">{prod.name}</h3>
                     <p className="menu__card-description">{prod.description}</p>
@@ -71,10 +71,15 @@ function Menu({ addToCart }) {
                         }`}
                         onClick={() => handleAdd(prod)}
                       >
-                        {added === prod.id ? "✔" : "Ajouter"}
+                        {added === prod.id ? (
+                          <FontAwesomeIcon icon={faPlus} beat />
+                        ) : (
+                          <FontAwesomeIcon icon={faPlus} />
+                        )}
                       </button>
                     </div>
                   </div>
+
                   <figure className="menu__card-image">
                     <img src={prod.image} alt={prod.name} />
                   </figure>

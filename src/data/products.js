@@ -6,7 +6,7 @@ export const products = [
     name: "Sushi Saumon", 
     price: 12.5, 
     category: "Sushi", 
-    image: "/images/logosabai.png",
+    image: "/images/product.png",
     description: "Délicieux sushi au saumon frais, riz vinaigré et nori croustillant"
   },
   { 
@@ -14,7 +14,7 @@ export const products = [
     name: "Sushi Thon", 
     price: 13, 
     category: "Sushi", 
-    image: "/images/logosabai.png",
+    image: "/images/product.png",
     description: "Thon rouge de qualité supérieure sur un lit de riz parfumé"
   },
   { 
@@ -22,7 +22,7 @@ export const products = [
     name: "Sushi Crevette", 
     price: 12, 
     category: "Sushi", 
-    image: "/images/logosabai.png",
+    image: "/images/product.png",
     description: "Crevettes tigrées cuites à la perfection, fraîcheur garantie"
   },
   { 
@@ -30,7 +30,7 @@ export const products = [
     name: "Sushi Anguille", 
     price: 14, 
     category: "Sushi", 
-    image: "/images/logosabai.png",
+    image: "/images/product.png",
     description: "Anguille grillée sauce unagi, un classique japonais"
   },
 
@@ -40,7 +40,7 @@ export const products = [
     name: "California Avocat", 
     price: 10, 
     category: "California", 
-    image: "/images/logosabai.png",
+    image: "/images/product.png",
     description: "Roulé à l'extérieur, avocat crémeux et concombre croquant"
   },
   { 
@@ -48,7 +48,7 @@ export const products = [
     name: "California Saumon Cheese", 
     price: 11, 
     category: "California", 
-    image: "/images/logosabai.png",
+    image: "/images/product.png",
     description: "Saumon frais et fromage cream cheese, une alliance parfaite"
   },
   { 
@@ -64,7 +64,7 @@ export const products = [
     name: "California Tempura", 
     price: 13, 
     category: "California", 
-    image: "/images/logosabai.png",
+    image: "/images/product.png",
     description: "Crevettes tempura croustillantes, texture unique"
   },
 
@@ -74,7 +74,7 @@ export const products = [
     name: "Maki Concombre", 
     price: 8, 
     category: "Maki", 
-    image: "/images/maki_concombre.jpg",
+    image: "/images/product.png",
     description: "Simplicité et fraîcheur, concombre croquant enroulé dans le riz"
   },
   { 
@@ -82,7 +82,7 @@ export const products = [
     name: "Maki Saumon", 
     price: 9, 
     category: "Maki", 
-    image: "/images/maki_saumon.jpg",
+    image: "/images/product.png",
     description: "Saumon frais enroulé dans l'algue nori, basique mais essentiel"
   },
   { 
@@ -90,7 +90,7 @@ export const products = [
     name: "Maki Thon", 
     price: 9, 
     category: "Maki", 
-    image: "/images/maki_thon.jpg",
+    image: "/images/product.png",
     description: "Thon rouge de qualité, roulé à la main par nos chefs"
   },
   { 
@@ -98,7 +98,7 @@ export const products = [
     name: "Maki Avocat", 
     price: 8, 
     category: "Maki", 
-    image: "/images/maki_avocat.jpg",
+    image: "/images/product.png",
     description: "Avocat mûr à point, onctueux et savoureux"
   },
 
@@ -108,7 +108,7 @@ export const products = [
     name: "Sashimi Saumon", 
     price: 14, 
     category: "Sashimi", 
-    image: "/images/sashimi_saumon.jpg",
+    image: "/images/product.png",
     description: "Tranches épaisses de saumon norvégien, pureté du poisson"
   },
   { 
@@ -116,7 +116,7 @@ export const products = [
     name: "Sashimi Thon", 
     price: 15, 
     category: "Sashimi", 
-    image: "/images/sashimi_thon.jpg",
+    image: "/images/product.png",
     description: "Thon rouge premium, fondant et riche en saveurs"
   },
   { 
@@ -124,7 +124,7 @@ export const products = [
     name: "Sashimi Daurade", 
     price: 16, 
     category: "Sashimi", 
-    image: "/images/sashimi_daurade.jpg",
+    image: "/images/product.png",
     description: "Daurade royale, texture ferme et goût délicat"
   },
 
@@ -134,7 +134,7 @@ export const products = [
     name: "Yakitori Poulet", 
     price: 12, 
     category: "Yakitori", 
-    image: "/images/yakitori_poulet.jpg",
+    image: "/images/product.png",
     description: "Brochettes de poulet grillées sauce teriyaki, tendre et juteux"
   },
   { 
@@ -142,7 +142,7 @@ export const products = [
     name: "Yakitori Boeuf Fromage", 
     price: 13, 
     category: "Yakitori", 
-    image: "/images/yakitori_boeuf_fromage.jpg",
+    image: "/images/product.png",
     description: "Boeuf wagyu et fromage fondant, une combinaison divine"
   },
   { 
@@ -150,7 +150,7 @@ export const products = [
     name: "Yakitori Tsukune", 
     price: 12, 
     category: "Yakitori", 
-    image: "/images/yakitori_tsukune.jpg",
+    image: "/images/product.png",
     description: "Boulettes de poulet haché, texture unique et savoureuse"
   },
 
@@ -160,7 +160,7 @@ export const products = [
     name: "Ramen Shoyu", 
     price: 14, 
     category: "Ramen", 
-    image: "/images/ramen_shoyu.jpg",
+    image: "/images/product.png",
     description: "Bouillon soja clair, nouilles al dente, porc confit et œuf parfait"
   },
   { 
@@ -176,7 +176,7 @@ export const products = [
     name: "Ramen Épicé", 
     price: 15, 
     category: "Ramen", 
-    image: "/images/ramen_epice.jpg",
+    image: "/images/product.png",
     description: "Bouillon tonkotsu épicé, pour réchauffer vos papilles"
   },
 
@@ -186,7 +186,7 @@ export const products = [
     name: "Thé Vert", 
     price: 3, 
     category: "Boissons", 
-    image: "/images/the_vert.jpg",
+    image: "/images/product.png",
     description: "Thé vert sencha du Japon, frais et désaltérant"
   },
   { 
@@ -194,7 +194,7 @@ export const products = [
     name: "Ramune", 
     price: 4, 
     category: "Boissons", 
-    image: "/images/ramune.jpg",
+    image: "/images/product.png",
     description: "Soda japonais iconique avec sa bille distinctive, saveur originale"
   },
   { 
@@ -202,7 +202,7 @@ export const products = [
     name: "Soda Japonais Yuzu", 
     price: 5, 
     category: "Boissons", 
-    image: "/images/soda_yuzu.jpg",
+    image: "/images/product.png",
     description: "Soda au yuzu, agrumes japonais rafraîchissants"
   },
 
@@ -212,7 +212,7 @@ export const products = [
     name: "Mochi Matcha", 
     price: 6, 
     category: "Desserts", 
-    image: "/images/mochi_matcha.jpg",
+    image: "/images/product.png",
     description: "Pâte de riz gluant fourrée à la crème matcha, texture unique"
   },
   { 
@@ -220,7 +220,7 @@ export const products = [
     name: "Mochi Mangue", 
     price: 6, 
     category: "Desserts", 
-    image: "/images/mochi_mangue.jpg",
+    image: "/images/product.png",
     description: "Mochi frais à la mangue, douceur fruitée en bouche"
   },
   { 
@@ -228,7 +228,7 @@ export const products = [
     name: "Cheesecake Japonais", 
     price: 7, 
     category: "Desserts", 
-    image: "/images/cheesecake_japonais.jpg",
+    image: "/images/product.png",
     description: "Cheesecake cotonneux à la japonaise, léger et aérien"
   }
 ];

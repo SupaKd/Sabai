@@ -8,6 +8,11 @@ function Home({ addToCart }) {
 
       <section className="hero-wrapper">
         <Hero />
+        <div className="menu__images">
+          <img src="/images/sushi.png" alt="" />
+          <img src="/images/bowl.png" alt="" />
+          <img src="/images/sand.png" alt="" />
+        </div>
 
         <img
           src="/images/coriande.png"

@@ -4,7 +4,7 @@
 //====================================================
 
 // Couleurs
-$bg: #fef9f2;                   // ivoire sableux
+$bg: #f9f9f9;                   // ivoire sableux
 $text: #3a2e22;                 // brun profond (bois)
 $text-soft: #7c6e5a;            // brun clair épices
 $accent: #9d2a2a;               // rouge cambodgien principal
@@ -117,11 +117,7 @@ $transition: 0.25s cubic-bezier(0.2, 0.9, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #fff;
-    border-radius: $radius;
     padding: 14px;
-    box-shadow: $soft-shadow;
-    border: 1px solid $border;
     gap: 14px;
     z-index: 3;
 
@@ -158,19 +154,19 @@ $transition: 0.25s cubic-bezier(0.2, 0.9, 0.2, 1);
   }
 
   &__card-footer {
-    margin-top: 8px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
   &__price {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
   }
 
   &__add-btn {
-    padding: 8px 16px;
+    padding: 6px 12px;
     border-radius: 30px;
     font-size: 0.9rem;
     font-weight: 700;

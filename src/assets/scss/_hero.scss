@@ -182,7 +182,7 @@ $xl: 1280px;
 
 .menu__overlay-image {
   position: absolute;
-  bottom: -340px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
+  bottom: -540px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
   left: 74%;
   transform: translateX(-50%);
   width: 100px; // ajuste selon ton design
@@ -209,5 +209,40 @@ $xl: 1280px;
     z-index: 1; // si besoin
     pointer-events: none;
     
+  }
+}
+
+.menu__images {
+  display: flex;
+  flex-direction: row;   // Alignement horizontal
+  justify-content: center; // Centrer les images horizontalement
+  align-items: center;     // Centrer verticalement si hauteurs différentes
+
+  img {
+    width: 120px;         // Largeur fixe pour mobile
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05); // léger effet zoom au survol
+    }
+  }
+
+  // Tablette / desktop
+  @media (min-width: 768px) {
+    gap: 16px;
+
+    img {
+      width: 100px; // images un peu plus grandes
+    }
+  }
+
+  @media (min-width: 1024px) {
+    gap: 20px;
+
+    img {
+      width: 120px;
+    }
   }
 }
