@@ -20,7 +20,7 @@ $transition: 0.25s cubic-bezier(0.2, 0.9, 0.2, 1);
 //====================================================
 
 .menu {
-  padding: 50px 10px 60px;
+  padding: 50px 0px 60px;
   background: $bg;
   color: $text;
   max-width: 1200px;
@@ -28,6 +28,7 @@ $transition: 0.25s cubic-bezier(0.2, 0.9, 0.2, 1);
 
   &__title {
     font-size: 2rem;
+    margin-left: 10px;
     font-weight: 700;
     margin-bottom: 22px;
     text-align: start;
@@ -52,8 +53,8 @@ $transition: 0.25s cubic-bezier(0.2, 0.9, 0.2, 1);
     display: inline-flex;
     gap: 12px;
     background-color: #f4eee4;     // ton bambou clair
-    padding: 0.5rem 0.75rem;
-    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    margin:0;
   }
 
   &__category-btn {
@@ -61,7 +62,6 @@ $transition: 0.25s cubic-bezier(0.2, 0.9, 0.2, 1);
     font-size: 0.875rem;
     font-weight: 500;
     border: none;
-    border-radius: 12px;
     background: #ffffff;
     color: $text;
     cursor: pointer;
@@ -100,6 +100,8 @@ $transition: 0.25s cubic-bezier(0.2, 0.9, 0.2, 1);
     margin: 32px 0 20px;
     border-left: 5px solid $accent-soft;
     padding-left: 10px;
+    margin-left: 10px;
+
   }
 
   &__items {

@@ -217,6 +217,7 @@ $xl: 1280px;
   flex-direction: row;   // Alignement horizontal
   justify-content: center; // Centrer les images horizontalement
   align-items: center;     // Centrer verticalement si hauteurs différentes
+  gap:8px;
 
   img {
     width: 120px;         // Largeur fixe pour mobile
