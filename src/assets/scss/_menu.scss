@@ -52,7 +52,7 @@ $transition: 0.25s cubic-bezier(0.2, 0.9, 0.2, 1);
   &__categories {
     display: inline-flex;
     gap: 12px;
-    background-color: #f4eee4;     // ton bambou clair
+    background-color: #eee;     // ton bambou clair
     padding: 1.5rem 1rem;
     margin:0;
   }
@@ -144,7 +144,7 @@ $transition: 0.25s cubic-bezier(0.2, 0.9, 0.2, 1);
   }
 
   &__card-name {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: $text;
   }
