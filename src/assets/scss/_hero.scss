@@ -191,7 +191,7 @@ $xl: 1280px;
 
   @media screen and (min-width: 768px) {
     position: absolute;
-    bottom: -320px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
+    bottom: -220px; // l’image dépasse en bas pour se “poser” entre Hero et Menu
     left: 85%;
     transform: translateX(-50%);
     width: 130px; // ajuste selon ton design
